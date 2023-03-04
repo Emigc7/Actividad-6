@@ -1,1 +1,27 @@
-<p>formulario works!</p>
+<form class="m-3 mt-5" novalidate [formGroup]="userForm" (submit)="getDataForm()">
+  <div class="container formulario-container">
+    <div class="mb-2">
+      <label for="first_name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="first_name" aria-describedby="Nombre" formControlName="first_name">
+      
+    </div>
+    <div class="mb-2">
+      <label for="last_name" class="form-label">Apellido</label>
+      <input type="text" class="form-control" id="last_name" aria-describedby="Apellido" formControlName="last_name">
+    </div>
+    <div class="mb-2">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
+    </div>
+    <div class="mb-2">
+      <label for="foto" class="form-label">Avatar</label>
+      <input type="text" class="form-control" id="foto" aria-describedby="emailHelp" formControlName="foto">
+    </div>
+ 
+    <p class="error" *ngIf="checkControl('required')">*Se deben rellenar todos los campos</p>
+    <button type="submit" class="mt-2 btn btn-dark"  >Guardar</button>
+    <!--[disabled]="!userForm.valid"-->
+
+  </div>
+
+  </form>

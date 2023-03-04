@@ -1,0 +1,12 @@
+.formulario-container{
+    background-color: rgb(230, 228, 228);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: solid 0.5px lightgray;
+    max-width: 500px;
+}
+.error{
+
+    font-size: 10px;
+    color: red;
+}

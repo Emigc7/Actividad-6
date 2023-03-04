@@ -1,0 +1,22 @@
+.titulo-header{
+    font-size: 2rem;
+    margin-left: 1rem;
+
+}
+
+
+.pointer:hover {
+    cursor: pointer;
+    color: lightgray;
+}
+.text-white1{
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-white-rgb),var(--bs-text-opacity));
+}
+
+.navbar-toggler{
+ 
+    border: var(--bs-border-width) solid gray;
+
+
+}
