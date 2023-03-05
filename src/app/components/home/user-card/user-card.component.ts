@@ -13,4 +13,20 @@ export class UserCardComponent {
 
   constructor(private usersService: UsersService){}
   
+
+ async deleteUser(pId : string | undefined):Promise<void>{
+
+    if(pId !== undefined){
+
+      try{
+        let response= await this.usersService.delete(pId);
+        alert(`El usuario ${response.first_name} ${response.last_name} ha sido borrado correctamente`)
+      }catch{
+        console.log(Error)
+      }
+
+    }
+
+    
+  }
 }

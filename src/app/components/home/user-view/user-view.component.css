@@ -5,6 +5,7 @@
 .boton-detalle{
     max-width: 10rem;
     justify-self: center;
+    background-color: gray;
 }
 .lista-detalle{
     list-style: none;

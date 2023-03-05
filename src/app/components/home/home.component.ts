@@ -22,11 +22,10 @@ export class HomeComponent implements OnInit {
   async gotoPage(pNum: number = 1): Promise<void> {
     try {
       let response = await this.usersService.getAll(pNum)
-     console.log(response);
       this.currentPage = response.page;
       this.totalPages = response.total_pages;
       this.arrUsers = response.results;
-      //console.log(this.arrUser)
+      
     }
     catch (error) {
       console.log(error);

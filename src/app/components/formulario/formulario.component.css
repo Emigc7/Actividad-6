@@ -10,3 +10,14 @@
     font-size: 10px;
     color: red;
 }
+.titulo-formulario{
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 1rem;
+    color: rgb(68, 52, 41);
+    margin: 0 auto;
+}
+.container-titulo-form{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid lightgray;
+}

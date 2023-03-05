@@ -5,10 +5,19 @@
       </figure>
       <h3 class="card-title">{{miUser.first_name}} {{miUser.last_name}}</h3>
     </div>
-    <div class="d-flex justify-content-between">
-      <button  class="btn btn-warning" [routerLink]="['/usuario', miUser._id]" >Ver detalle</button>
-      <button  class="btn btn-secondary">Actualizar</button>
-      <button class="btn btn-danger">Borrar</button>
+    <div class="d-flex justify-content-between botones-container">
+      <button  class="btn " [routerLink]="['/usuario', miUser._id]" >
+        <i class="fa-sharp fa-regular fa-user"></i>
+        <p class="fs-small">Info</p>
+      </button>
+      <button  class="btn" [routerLink]="['/update', miUser._id]">
+        <i class="fa-solid fa-arrows-rotate"></i>
+        <p class="fs-small">Actualizar</p>
+      </button>
+      <button class="btn" (click)="deleteUser(miUser._id)" >
+        <i class="fa-regular fa-trash-can"></i>
+        <p class="fs-small">Borrar</p>
+      </button>
     </div>
   
   </div>

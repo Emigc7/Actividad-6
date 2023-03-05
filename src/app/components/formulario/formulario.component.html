@@ -1,8 +1,13 @@
+<div class="container-titulo-form">
+  <h2 class="titulo-formulario">{{titulo}}</h2>
+</div>
+
+
 <form class="m-3 mt-5" novalidate [formGroup]="userForm" (submit)="getDataForm()">
   <div class="container formulario-container">
     <div class="mb-2">
-      <label for="first_name" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="first_name" aria-describedby="Nombre" formControlName="first_name">
+      <label for="first_name" class="form-label" >Nombre</label>
+      <input type="text" class="form-control"  id="first_name" aria-describedby="Nombre" formControlName="first_name">
       
     </div>
     <div class="mb-2">
@@ -19,7 +24,7 @@
     </div>
  
     <p class="error" *ngIf="checkControl('required')">*Se deben rellenar todos los campos</p>
-    <button type="submit" class="mt-2 btn btn-dark"  >Guardar</button>
+    <button type="submit" class="mt-2 btn btn-dark" >Guardar</button>
     <!--[disabled]="!userForm.valid"-->
 
   </div>

@@ -8,3 +8,11 @@
     justify-content: space-between;
     gap: 10px;
 }
+.fs-small{
+    font-size: 13px;
+}
+
+.botones-container{
+    border-top: 1px solid gray;
+    
+}
