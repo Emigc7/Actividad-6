@@ -1,0 +1,10 @@
+.imagen-redonda{
+ border-radius: 50%;
+ 
+}
+.usuarios-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}

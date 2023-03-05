@@ -1,0 +1,18 @@
+.container-detalle{
+
+    max-width: 50rem;
+}
+.boton-detalle{
+    max-width: 10rem;
+    justify-self: center;
+}
+.lista-detalle{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.carta-detalle{
+    margin-left: 2.5rem;
+    width: 90%;
+}

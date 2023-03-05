@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FormularioComponent } from './components/formulario/formulario.component';
 import { UserComponent } from './components/user/user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserCardComponent } from './components/home/user-card/user-card.component';
+import { UserViewComponent } from './components/home/user-view/user-view.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     FormularioComponent,
-    UserComponent
+    UserComponent,
+    UserCardComponent,
+    UserViewComponent
   ],
   imports: [
     BrowserModule,

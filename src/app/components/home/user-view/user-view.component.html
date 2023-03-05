@@ -1,0 +1,26 @@
+<section class="mt-3">
+    <div class="card mb-3 p-3 carta-detalle">
+        <div class="row g-1">
+          <div class="col-md-4">
+            <img [src]="user?.image" [alt]="user?.first_name" class="img-fluid rounded-start">
+          </div>
+          <div class="col-md-8 p-3 card-body">
+            
+                <div class="lista-detalle">
+                    <h5>NOMBRE:</h5>
+                    <p>{{ user?.first_name }}</p>
+                    <h5>APELLIDOS:</h5>
+                    <p>{{ user?.last_name }}</p>
+                    <h5>EMAIL:</h5>
+                    <p>{{ user?.email }}</p>
+                </div>
+            
+            
+          </div>
+          <button class="btn btn-warning boton-detalle" [routerLink]="['/home']">Volver a usuarios</button>
+        </div>
+      </div>
+
+  </section>
+  
+ 
