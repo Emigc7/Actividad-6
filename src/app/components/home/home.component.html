@@ -10,8 +10,11 @@
   
       <nav aria-label="Page navigation example">
         <ul class="pagination elemento-a-mover pb-4">
-          <li class="page-item "><button class="page-link" (click)="gotoPage(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button></li>
-          <li class="page-item"><button class="page-link" (click)="gotoPage(currentPage + 1)" [disabled]="currentPage === totalPages">Siguiente</button></li>
+          <li class="page-item "><button class="page-link"  [routerLink]="['/home', currentPage-1]" [disabled]="currentPage === 1"> < </button></li>
+          <li *ngFor="let pagina of arrPages">
+            <button class="page-link" [routerLink]="['/home', pagina]" [disabled]="currentPage === pagina" >{{pagina}}</button>
+          </li>
+          <li class="page-item"><button class="page-link"  [routerLink]="['/home', currentPage+1]" [disabled]="currentPage === totalPages"> > </button></li>
         </ul>
       </nav>
   
