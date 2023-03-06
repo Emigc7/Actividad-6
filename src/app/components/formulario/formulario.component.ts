@@ -11,6 +11,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class FormularioComponent implements OnInit {
 
+  
   titulo: string = 'Nuevo Usuario'
   userForm: FormGroup | any;
   msg: string = "";
@@ -27,13 +28,16 @@ export class FormularioComponent implements OnInit {
         Validators.required,
         Validators.minLength(3)]),
       last_name: new FormControl("", [
-        Validators.required
+        Validators.required,
+          Validators.minLength(3)
       ]),
       email: new FormControl("", [
-        Validators.required
+        Validators.minLength(5),
+        Validators.pattern(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
       ]),
       foto: new FormControl("", [
-        Validators.required
+        Validators.required,
+          Validators.minLength(10)
       ]),
     }, []);
   }
@@ -50,10 +54,23 @@ ngOnInit(): void {
 
       this.userForm = new FormGroup({
         id: new FormControl(id, []),
-        first_name: new FormControl(user?.first_name, []),
-        last_name: new FormControl(user?.last_name, []),
-        email: new FormControl(user?.email, []),
-        foto: new FormControl(user?.image, []),
+        first_name: new FormControl(user?.first_name, [
+          Validators.required,
+          Validators.minLength(3)
+        ]),
+        last_name: new FormControl(user?.last_name, [
+          Validators.required,
+          Validators.minLength(3)
+        ]),
+        email: new FormControl(user?.email, [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.pattern(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)
+        ]),
+        foto: new FormControl(user?.image, [
+          Validators.required,
+          Validators.minLength(10)
+        ]),
       }, []);
     }
     
@@ -67,9 +84,10 @@ async getDataForm() {
   if (user.id) {
     //Actualizando
     let response = await this.usersService.update(user);
-    console.log(response)
-    alert(`Los datos de ${response.first_name} han sido actualizados correctamente`)
-    this.router.navigate(['/home']);
+    this.msg =`Los datos de ${response.first_name} han sido actualizados correctamente`;
+    console.log(this.msg)
+    this.type= 'success'
+    //this.router.navigate(['/home']);
     
   } else {
     //Registrando
@@ -77,9 +95,8 @@ async getDataForm() {
       let response = await this.usersService.create(user)
       if (response.id) {
         this.msg = `usuario ${response.first_name} con id ${response.id} se creado correctamente`;
-        alert(this.msg)
         this.type = 'success'
-        this.router.navigate(['/home']);
+       // this.router.navigate(['/home']);
       }
     }
     catch (err) {
@@ -94,18 +111,13 @@ async getDataForm() {
 
   checkControl(pError: string): boolean {
    
-    //if (this.userForm.get(pControlName)?.hasError(pError) && this.userForm.get(pControlName)?.touched) {
-    let validador: boolean= true;
-
-    for (let key in this.userForm.value){
-      if (this.userForm.get(key)?.hasError(pError) && this.userForm.get(key)?.touched){
-        
-      }else{
-        validador = false
-      }
+    
+    if (this.userForm.get('first_name')?.hasError(pError) && this.userForm.get('first_name')?.touched || this.userForm.get('last_name')?.hasError(pError) && this.userForm.get('last_name')?.touched || this.userForm.get('email')?.hasError(pError) && this.userForm.get('email')?.touched || this.userForm.get('foto')?.hasError(pError) && this.userForm.get('foto')?.touched ) {
+      
+      return true
+    
 
     }
-
-    return validador
+    return false
   }
 }

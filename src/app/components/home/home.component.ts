@@ -10,6 +10,8 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class HomeComponent implements OnInit {
 
+  textoBorrado : string = "";
+  visible:boolean = false;
   arrUsers: Usuario[] = [];
   arrPages:number[] = [];
   currentPage: number=1;
@@ -61,5 +63,20 @@ export class HomeComponent implements OnInit {
       for(let i=1;i<=this.totalPages;i++){
         this.arrPages.push(i)
       }
+  }
+
+  mensageo($event:string):void{
+    this.textoBorrado = $event;
+    if (this.textoBorrado !== ""){
+      this.visible=true;
+      setTimeout(() => {
+        this.visible = false;
+      }, 2200);
+    }
+  }
+
+  cerrar(){
+    this.textoBorrado="";
+    this.visible=false;
   }
 }

@@ -1,9 +1,14 @@
-<section class="container mt-4">
+<div class=" alert alert-dismissible fade alert-success ventana-fija" [ngClass]="{'show': visible}" role="alert">
+  <p>{{textoBorrado}}</p>
+  <button type="button" class="btn-close" (click)="cerrar()"></button>
+</div>
+
+<section class="container mt-5">
+  
     <div class="row g-3">
   
       <article class="col-8  col-sm-6  col-md-4 col-lg-3 g-3 article-cards" *ngFor="let user of arrUsers">
-        <!--<app-user-card></app-user-card>-->
-        <app-user-card [miUser]="user"></app-user-card>
+        <app-user-card [miUser]="user" (msg)="mensageo($event)"></app-user-card>
       </article>
   
       
@@ -12,7 +17,7 @@
         <ul class="pagination elemento-a-mover pb-4">
           <li class="page-item "><button class="page-link"  [routerLink]="['/home', currentPage-1]" [disabled]="currentPage === 1"> < </button></li>
           <li *ngFor="let pagina of arrPages">
-            <button class="page-link" [routerLink]="['/home', pagina]" [disabled]="currentPage === pagina" >{{pagina}}</button>
+            <button class="page-link  " [routerLink]="['/home', pagina]" [disabled]="currentPage === pagina" >{{pagina}}</button>
           </li>
           <li class="page-item"><button class="page-link"  [routerLink]="['/home', currentPage+1]" [disabled]="currentPage === totalPages"> > </button></li>
         </ul>

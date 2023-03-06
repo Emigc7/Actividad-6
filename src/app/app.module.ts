@@ -10,6 +10,9 @@ import { UserComponent } from './components/user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserCardComponent } from './components/home/user-card/user-card.component';
 import { UserViewComponent } from './components/home/user-view/user-view.component';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+import { C404Component } from './components/c404/c404.component';
+
 
 
 @NgModule({
@@ -19,7 +22,9 @@ import { UserViewComponent } from './components/home/user-view/user-view.compone
     FormularioComponent,
     UserComponent,
     UserCardComponent,
-    UserViewComponent
+    UserViewComponent,
+    NotificacionesComponent,
+    C404Component
   ],
   imports: [
     BrowserModule,

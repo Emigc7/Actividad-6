@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/usuario.interface';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -10,8 +10,11 @@ import { UsersService } from 'src/app/services/users.service';
 export class UserCardComponent {
 
   @Input() miUser!: Usuario | any;
-
-  constructor(private usersService: UsersService){}
+  @Output() msg:EventEmitter<string>;
+ 
+  constructor(private usersService: UsersService){
+    this.msg = new EventEmitter();
+  }
   
 
  async deleteUser(pId : string | undefined):Promise<void>{
@@ -20,7 +23,7 @@ export class UserCardComponent {
 
       try{
         let response= await this.usersService.delete(pId);
-        alert(`El usuario ${response.first_name} ${response.last_name} ha sido borrado correctamente`)
+        this.msg.emit(`El usuario ${response.first_name} ${response.last_name} ha sido borrado correctamente`) 
       }catch{
         console.log(Error)
       }

@@ -2,6 +2,7 @@
   <h2 class="titulo-formulario">{{titulo}}</h2>
 </div>
 
+<app-notificaciones [msg]="msg" [type]="type"></app-notificaciones>
 
 <form class="m-3 mt-5" novalidate [formGroup]="userForm" (submit)="getDataForm()">
   <div class="container formulario-container">
@@ -19,12 +20,12 @@
       <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
     </div>
     <div class="mb-2">
-      <label for="foto" class="form-label">Avatar</label>
+      <label for="foto" class="form-label">Foto</label>
       <input type="text" class="form-control" id="foto" aria-describedby="emailHelp" formControlName="foto">
     </div>
  
-    <p class="error" *ngIf="checkControl('required')">*Se deben rellenar todos los campos</p>
-    <button type="submit" class="mt-2 btn btn-dark" >Guardar</button>
+    <p class="error" *ngIf="checkControl('required')">*Se deben rellenar todos los campos correctamente</p>
+    <button type="submit" class="mt-2 btn btn-dark" [disabled]="!userForm.valid">Guardar</button>
     <!--[disabled]="!userForm.valid"-->
 
   </div>
